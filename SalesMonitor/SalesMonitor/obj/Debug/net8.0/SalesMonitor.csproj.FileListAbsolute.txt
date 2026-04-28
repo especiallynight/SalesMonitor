@@ -164,3 +164,4 @@ E:\Study\SaleAnalysisProject\SalesMonitor\SalesMonitor\bin\Debug\net8.0\System.T
 E:\Study\SaleAnalysisProject\SalesMonitor\SalesMonitor\bin\Debug\net8.0\System.Threading.Channels.dll
 E:\Study\SaleAnalysisProject\SalesMonitor\SalesMonitor\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 E:\Study\SaleAnalysisProject\SalesMonitor\SalesMonitor\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+E:\Study\SaleAnalysisProject\SalesMonitor\SalesMonitor\obj\Debug\net8.0\SalesMonitor.sourcelink.json

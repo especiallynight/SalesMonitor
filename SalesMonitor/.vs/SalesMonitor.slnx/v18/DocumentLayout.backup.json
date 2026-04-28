@@ -72,7 +72,7 @@
               "RelativeDocumentMoniker": "SalesMonitor\\Pages\\Index.razor",
               "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\SalesMonitor\\Pages\\Index.razor",
               "RelativeToolTip": "SalesMonitor\\Pages\\Index.razor",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAwFgAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-28T16:49:34.651Z",
               "EditorCaption": ""
@@ -87,8 +87,7 @@
               "RelativeToolTip": "SalesMonitor\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-28T16:45:36.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:45:36.096Z"
             },
             {
               "$type": "Document",
@@ -100,8 +99,7 @@
               "RelativeToolTip": "SalesMonitor\\Models\\AlertNotification.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:40:48.899Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:40:48.899Z"
             },
             {
               "$type": "Document",
@@ -113,8 +111,7 @@
               "RelativeToolTip": "SalesMonitor\\Controllers\\ExportController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:07:46.221Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:07:46.221Z"
             },
             {
               "$type": "Document",
@@ -126,8 +123,7 @@
               "RelativeToolTip": "SalesMonitor\\Hubs\\AlertHub.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:07:34.719Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:07:34.719Z"
             },
             {
               "$type": "Document",
@@ -139,8 +135,7 @@
               "RelativeToolTip": "SalesMonitor\\Services\\ChurnMonitorService.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAcwDwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:07:23.194Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:07:23.194Z"
             },
             {
               "$type": "Document",
@@ -152,8 +147,7 @@
               "RelativeToolTip": "SalesMonitor\\Services\\DataSeeder.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAYwCIAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:07:13.664Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:07:13.664Z"
             },
             {
               "$type": "Document",
@@ -165,8 +159,7 @@
               "RelativeToolTip": "SalesMonitor\\Services\\StatisticsHelper.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:07:04.447Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:07:04.447Z"
             },
             {
               "$type": "Document",
@@ -178,8 +171,7 @@
               "RelativeToolTip": "SalesMonitor\\Data\\AppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:06:21.281Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:06:21.281Z"
             },
             {
               "$type": "Document",
@@ -191,8 +183,7 @@
               "RelativeToolTip": "SalesMonitor\\Models\\ClientActivity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:06:02.948Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:06:02.948Z"
             },
             {
               "$type": "Document",
@@ -204,8 +195,7 @@
               "RelativeToolTip": "SalesMonitor\\Models\\Sale.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAQwBAAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:05:46.175Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:05:46.175Z"
             },
             {
               "$type": "Document",
@@ -217,8 +207,7 @@
               "RelativeToolTip": "SalesMonitor\\Models\\Product.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:05:31.998Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:05:31.998Z"
             },
             {
               "$type": "Document",
@@ -230,8 +219,7 @@
               "RelativeToolTip": "SalesMonitor\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T16:03:29.443Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T16:03:29.443Z"
             }
           ]
         }
