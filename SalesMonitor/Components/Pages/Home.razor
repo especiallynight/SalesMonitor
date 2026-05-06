@@ -1,0 +1,65 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@using Microsoft.EntityFrameworkCore
+@using SalesMonitor.Data
+@using SalesMonitor.Models
+@inject AppDbContext Db
+
+<PageTitle>Мониторинг продаж</PageTitle>
+
+<div class="monitor-container">
+    <div class="monitor-header">
+        <h2 class="monitor-title">Мониторинг активности клиентов</h2>
+        <span class="monitor-badge">Онлайн</span>
+    </div>
+
+    <div class="table-card">
+        <div class="table-header">
+            <h5 class="table-title">Продукты</h5>
+        </div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Продукт</th>
+                    <th>Последняя продажа</th>
+                    <th>Средний интервал</th>
+                    <th>Дней без продаж</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in _activities)
+                {
+                    var days = (DateTime.Today - item.LastSaleDate?.Date)?.Days ?? 0;
+                    var isRisk = days > (double)(item.AverageOrderInterval * 2.5m) && item.AverageOrderInterval > 0;
+
+                    <tr class="@(isRisk ? "risk-row" : "")">
+                        <td>@item.Product.Name</td>
+                        <td>@(item.LastSaleDate?.ToString("dd.MM.yyyy") ?? "—")</td>
+                        <td>@item.AverageOrderInterval.ToString("F1") дн</td>
+                        <td class="@(isRisk ? "text-danger" : "")">@days дн</td>
+                        <td>
+                            @if (isRisk)
+                            {
+                                <span class="status-risk">Риск ухода!</span>
+                            }
+                            else
+                            {
+                                <span class="status-ok">Норма</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private List<ClientActivity> _activities = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _activities = await Db.ClientActivities.Include(a => a.Product).ToListAsync();
+    }
+}

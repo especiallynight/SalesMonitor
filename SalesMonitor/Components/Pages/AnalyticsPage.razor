@@ -1,0 +1,191 @@
+﻿@page "/analytics"
+@rendermode InteractiveServer
+@using SalesMonitor.Models
+@using SalesMonitor.Services
+@inject AnalyticsService AnalyticsService
+@inject ForecastService ForecastService
+
+<PageTitle>Аналитика</PageTitle>
+
+<div class="analytics-container">
+    <h2 class="analytics-title">Аналитика продаж</h2>
+
+    <div class="tabs">
+        <span class="tab-btn @(_tab == 0 ? "tab-active" : "")" @onclick="() => SetTab(0)">ABC-анализ</span>
+        <span class="tab-btn @(_tab == 1 ? "tab-active" : "")" @onclick="() => SetTab(1)">XYZ-анализ</span>
+        <span class="tab-btn @(_tab == 2 ? "tab-active" : "")" @onclick="() => SetTab(2)">Прогноз</span>
+        <span class="tab-btn @(_tab == 3 ? "tab-active" : "")" @onclick="() => SetTab(3)">План-факт</span>
+        <span class="tab-btn @(_tab == 4 ? "tab-active" : "")" @onclick="() => SetTab(4)">Отклонения</span>
+    </div>
+
+    <div class="filters">
+        <span>Период с:</span>
+        <input type="date" @bind="_dateFrom" class="date-input" />
+        <span>по:</span>
+        <input type="date" @bind="_dateTo" class="date-input" />
+        <button class="btn-apply" @onclick="LoadData">Применить</button>
+    </div>
+
+    <div class="tab-content">
+        @if (_tab == 0)
+        {
+            <h4 class="section-title">ABC-анализ </h4>
+            <table class="data-table">
+                <thead><tr><th>Продукт</th><th>Выручка</th><th>Доля</th><th>Накоп.</th><th>Категория</th></tr></thead>
+                <tbody>
+                    @foreach (var item in _abcResults)
+                    {
+                        <tr>
+                            <td>@item.ProductName</td>
+                            <td>@item.Revenue.ToString("N0")</td>
+                            <td>@item.RevenueShare%</td>
+                            <td>@item.CumulativeShare%</td>
+                            <td><span class="badge @GetAbcBadge(item.Category)">@item.Category</span></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        @if (_tab == 1)
+        {
+            <h4 class="section-title">XYZ-анализ </h4>
+            <table class="data-table">
+                <thead><tr><th>Продукт</th><th>Коэфф. вариации</th><th>Категория</th></tr></thead>
+                <tbody>
+                    @foreach (var item in _xyzResults)
+                    {
+                        <tr>
+                            <td>@item.ProductName</td>
+                            <td>@item.CoefficientOfVariation%</td>
+                            <td><span class="badge @GetXyzBadge(item.Category)">@item.Category</span></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        @if (_tab == 2)
+        {
+            <h4 class="section-title">Прогноз продаж </h4>
+            <div class="forecast-grid">
+                @foreach (var fc in _forecasts)
+                {
+                    <div class="forecast-card">
+                        <h5>@fc.ProductName</h5>
+                        <p>Прогноз на месяц: <strong>@fc.NextMonthForecast.ToString("N0") руб</strong></p>
+                        <div class="chart">
+                            @{
+                                var maxVal = fc.HistoricalData.Any() ? fc.HistoricalData.Max() : 1;
+                            }
+                            @foreach (var val in fc.HistoricalData.TakeLast(25))
+                            {
+                                var h = (double)(val / maxVal) * 100;
+                                <div class="bar bar-hist" style="height:@(h)%" title="Ист: @val.ToString("N0")"></div>
+                            }
+                            <div class="gap"></div>
+                            @foreach (var val in fc.ForecastValues)
+                            {
+                                var h = (double)(val / maxVal) * 100;
+                                <div class="bar bar-forecast" style="height:@(h)%" title="Прогноз: @val.ToString("N0")"></div>
+                            }
+                        </div>
+                        <div class="chart-legend">
+                            <span><span class="dot dot-hist"></span> История</span>
+                            <span><span class="dot dot-forecast"></span> Прогноз</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+
+        @if (_tab == 3)
+        {
+            <h4 class="section-title">План-фактный анализ</h4>
+            <table class="data-table">
+                <thead><tr><th>Продукт</th><th>План</th><th>Факт</th><th>Отклонение</th><th>%</th></tr></thead>
+                <tbody>
+                    @foreach (var item in _planFactResults)
+                    {
+                        <tr class="@(item.Deviation < 0 ? "row-negative" : "row-positive")">
+                            <td>@item.ProductName</td>
+                            <td>@item.Plan.ToString("N0")</td>
+                            <td>@item.Fact.ToString("N0")</td>
+                            <td>@item.Deviation.ToString("+#;-#;0")</td>
+                            <td>@item.DeviationPercent%</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        @if (_tab == 4)
+        {
+            <h4 class="section-title">Отклонения от среднего</h4>
+            <table class="data-table">
+                <thead><tr><th>Продукт</th><th>Дата</th><th>Сумма</th><th>Среднее</th><th>Статус</th></tr></thead>
+                <tbody>
+                    @foreach (var item in _deviations)
+                    {
+                        <tr class="@(item.IsOutlier ? "risk-row" : "")">
+                            <td>@item.ProductName</td>
+                            <td>@item.SaleDate.ToString("dd.MM.yyyy")</td>
+                            <td>@item.TotalAmount.ToString("N0")</td>
+                            <td>@item.Mean.ToString("N0")</td>
+                            <td><span class="@(item.IsOutlier ? "status-risk" : "status-ok")">@(item.IsOutlier ? "Выброс" : "Норма")</span></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
+
+@code {
+    private int _tab;
+    private DateTime _dateFrom = DateTime.Today.AddMonths(-3);
+    private DateTime _dateTo = DateTime.Today;
+
+    private List<AbcResult> _abcResults = new();
+    private List<XyzResult> _xyzResults = new();
+    private List<SalesForecast> _forecasts = new();
+    private List<PlanFactResult> _planFactResults = new();
+    private List<DeviationResult> _deviations = new();
+
+    protected override async Task OnInitializedAsync() => await LoadData();
+
+    private void SetTab(int tab)
+    {
+        _tab = tab;
+    }
+
+    private async Task LoadData()
+    {
+        try
+        {
+            _abcResults = await AnalyticsService.GetAbcAnalysisAsync(_dateFrom, _dateTo);
+            _xyzResults = await AnalyticsService.GetXyzAnalysisAsync();
+            _forecasts = await ForecastService.GetAllForecastsAsync();
+            _planFactResults = await AnalyticsService.GetPlanFactAsync(_dateFrom, _dateTo);
+            _deviations = await AnalyticsService.GetDeviationsAsync(_dateFrom, _dateTo);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка: {ex.Message}");
+        }
+    }
+
+    private string GetAbcBadge(string cat) => cat switch
+    {
+        "A" => "badge-a",
+        "B" => "badge-b",
+        _ => "badge-c"
+    };
+
+    private string GetXyzBadge(string cat) => cat switch
+    {
+        "X" => "badge-x",
+        "Y" => "badge-y",
+        _ => "badge-z"
+    };
+}

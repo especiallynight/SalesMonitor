@@ -1,0 +1,15 @@
+﻿@inherits LayoutComponentBase
+
+<div class="layout-wrapper">
+    <aside class="sidebar">
+        <div class="sidebar-brand">SalesMonitor</div>
+        <nav class="sidebar-nav">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">Главная</NavLink>
+            <NavLink class="nav-link" href="analytics">Аналитика</NavLink>
+        </nav>
+        <div class="sidebar-footer">v1.0</div>
+    </aside>
+    <main class="main-content">
+        @Body
+    </main>
+</div>

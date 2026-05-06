@@ -1,0 +1,340 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\components\\pages\\analyticspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:components\\pages\\analyticspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\services\\forecastservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:services\\forecastservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\services\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:services\\dataseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\services\\analyticsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:services\\analyticsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\models\\sale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:models\\sale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\models\\clientactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:models\\clientactivity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\models\\analyticsdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:models\\analyticsdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|e:\\study\\saleanalysisproject\\salesmonitor\\salesmonitor.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{961E19B5-03FB-F9D7-C741-12540736B838}|SalesMonitor.csproj|solutionrelative:salesmonitor.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Error.razor",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Components\\Pages\\Error.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Error.razor",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Components\\Pages\\Error.razor",
+              "RelativeToolTip": "Components\\Pages\\Error.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-06T20:01:06.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "App.razor",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Components\\App.razor",
+              "RelativeDocumentMoniker": "Components\\App.razor",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Components\\App.razor",
+              "RelativeToolTip": "Components\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-06T19:36:03.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Routes.razor",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Components\\Routes.razor",
+              "RelativeDocumentMoniker": "Components\\Routes.razor",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Components\\Routes.razor",
+              "RelativeToolTip": "Components\\Routes.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-06T19:29:26.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "Components\\_Imports.razor",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Components\\_Imports.razor",
+              "RelativeToolTip": "Components\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-06T19:25:02.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AnalyticsPage.razor",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Components\\Pages\\AnalyticsPage.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\AnalyticsPage.razor",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Components\\Pages\\AnalyticsPage.razor",
+              "RelativeToolTip": "Components\\Pages\\AnalyticsPage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-06T19:16:20.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ForecastService.cs",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Services\\ForecastService.cs",
+              "RelativeDocumentMoniker": "Services\\ForecastService.cs",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Services\\ForecastService.cs",
+              "RelativeToolTip": "Services\\ForecastService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T19:15:27.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AnalyticsService.cs",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Services\\AnalyticsService.cs",
+              "RelativeDocumentMoniker": "Services\\AnalyticsService.cs",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Services\\AnalyticsService.cs",
+              "RelativeToolTip": "Services\\AnalyticsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T19:14:43.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AnalyticsData.cs",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Models\\AnalyticsData.cs",
+              "RelativeDocumentMoniker": "Models\\AnalyticsData.cs",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Models\\AnalyticsData.cs",
+              "RelativeToolTip": "Models\\AnalyticsData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T19:13:43.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "app.css",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\wwwroot\\app.css",
+              "RelativeDocumentMoniker": "wwwroot\\app.css",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\wwwroot\\app.css",
+              "RelativeToolTip": "wwwroot\\app.css",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAuwHwBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-05-06T19:11:15.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-06T19:11:00.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Home.razor",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "Components\\Pages\\Home.razor",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-06T19:07:44.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DataSeeder.cs",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Services\\DataSeeder.cs",
+              "RelativeDocumentMoniker": "Services\\DataSeeder.cs",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Services\\DataSeeder.cs",
+              "RelativeToolTip": "Services\\DataSeeder.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAYwBgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T19:06:25.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SalesMonitor.csproj",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\SalesMonitor.csproj",
+              "RelativeDocumentMoniker": "SalesMonitor.csproj",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\SalesMonitor.csproj",
+              "RelativeToolTip": "SalesMonitor.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-06T19:06:10.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-06T19:04:32.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T19:04:27.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T19:04:13.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ClientActivity.cs",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Models\\ClientActivity.cs",
+              "RelativeDocumentMoniker": "Models\\ClientActivity.cs",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Models\\ClientActivity.cs",
+              "RelativeToolTip": "Models\\ClientActivity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T19:03:24.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Sale.cs",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Models\\Sale.cs",
+              "RelativeDocumentMoniker": "Models\\Sale.cs",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Models\\Sale.cs",
+              "RelativeToolTip": "Models\\Sale.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T19:02:54.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Product.cs",
+              "DocumentMoniker": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Models\\Product.cs",
+              "ToolTip": "E:\\Study\\SaleAnalysisProject\\SalesMonitor\\Models\\Product.cs",
+              "RelativeToolTip": "Models\\Product.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAA7wCMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T19:02:13.885Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
