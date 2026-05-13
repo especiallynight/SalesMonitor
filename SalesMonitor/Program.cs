@@ -13,6 +13,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddTransient<DataSeeder>();
 builder.Services.AddTransient<AnalyticsService>();
 builder.Services.AddTransient<ForecastService>();
+builder.Services.AddTransient<ComparisonService>();
+builder.Services.AddTransient<ExportService>();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -25,6 +28,8 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseStaticFiles();
+app.UseRouting();
 app.UseAntiforgery();
+app.MapControllers();
 app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
 app.Run();

@@ -379,3 +379,165 @@ h1:focus {
 .dot-forecast {
     background: #ffeaa7;
 }
+.btn-export {
+    padding: 7px 18px;
+    background: #00b894;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.tab-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.section-title {
+    margin: 0 0 15px 0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-a {
+    background: #00b894;
+    color: white;
+}
+
+.badge-b {
+    background: #fdcb6e;
+    color: #2d3436;
+}
+
+.badge-c {
+    background: #e17055;
+    color: white;
+}
+
+.badge-x {
+    background: #00b894;
+    color: white;
+}
+
+.badge-y {
+    background: #fdcb6e;
+    color: #2d3436;
+}
+
+.badge-z {
+    background: #e17055;
+    color: white;
+}
+
+.row-positive {
+    background: #f5fff9;
+}
+
+.row-negative {
+    background: #fff5f5;
+}
+
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.forecast-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.chart {
+    display: flex;
+    gap: 2px;
+    align-items: flex-end;
+    height: 80px;
+    padding: 5px;
+}
+
+.bar {
+    width: 7px;
+    border-radius: 2px 2px 0 0;
+}
+
+.bar-hist {
+    background: #74b9ff;
+}
+
+.bar-forecast {
+    background: #ffeaa7;
+}
+
+.gap {
+    width: 10px;
+}
+
+.chart-legend {
+    display: flex;
+    gap: 15px;
+    font-size: 11px;
+    color: #636e72;
+    margin-top: 5px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    margin-right: 4px;
+}
+
+.dot-hist {
+    background: #74b9ff;
+}
+
+.dot-forecast {
+    background: #ffeaa7;
+}
+
+.chart-container {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.stat-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+    .stat-card small {
+        display: block;
+        color: #636e72;
+        margin-bottom: 5px;
+        font-size: 12px;
+    }
+
+    .stat-card strong {
+        font-size: 18px;
+        color: #2d3436;
+    }
+
+.stat-positive strong {
+    color: #00b894;
+}
+
+.stat-negative strong {
+    color: #d63031;
+}

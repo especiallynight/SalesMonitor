@@ -4,6 +4,8 @@
 @using SalesMonitor.Services
 @inject AnalyticsService AnalyticsService
 @inject ForecastService ForecastService
+@inject ComparisonService ComparisonService
+@inject NavigationManager NavigationManager
 
 <PageTitle>Аналитика</PageTitle>
 
@@ -16,6 +18,8 @@
         <span class="tab-btn @(_tab == 2 ? "tab-active" : "")" @onclick="() => SetTab(2)">Прогноз</span>
         <span class="tab-btn @(_tab == 3 ? "tab-active" : "")" @onclick="() => SetTab(3)">План-факт</span>
         <span class="tab-btn @(_tab == 4 ? "tab-active" : "")" @onclick="() => SetTab(4)">Отклонения</span>
+        <span class="tab-btn @(_tab == 5 ? "tab-active" : "")" @onclick="() => SetTab(5)">Графики</span>
+        <span class="tab-btn @(_tab == 6 ? "tab-active" : "")" @onclick="() => SetTab(6)">Сравнение</span>
     </div>
 
     <div class="filters">
@@ -24,120 +28,345 @@
         <span>по:</span>
         <input type="date" @bind="_dateTo" class="date-input" />
         <button class="btn-apply" @onclick="LoadData">Применить</button>
+        <button class="btn-export" @onclick="ExportToExcel">Экспорт Excel</button>
     </div>
 
     <div class="tab-content">
+
         @if (_tab == 0)
         {
-            <h4 class="section-title">ABC-анализ </h4>
-            <table class="data-table">
-                <thead><tr><th>Продукт</th><th>Выручка</th><th>Доля</th><th>Накоп.</th><th>Категория</th></tr></thead>
-                <tbody>
-                    @foreach (var item in _abcResults)
-                    {
+            <h4>ABC-анализ</h4>
+            @if (_abcResults.Count == 0)
+            {
+                <p style="color:#636e72; padding:30px; text-align:center;">Нет данных за выбранный период</p>
+            }
+            else
+            {
+                <table class="data-table">
+                    <thead>
                         <tr>
-                            <td>@item.ProductName</td>
-                            <td>@item.Revenue.ToString("N0")</td>
-                            <td>@item.RevenueShare%</td>
-                            <td>@item.CumulativeShare%</td>
-                            <td><span class="badge @GetAbcBadge(item.Category)">@item.Category</span></td>
+                            <th>Продукт</th>
+                            <th>Выручка</th>
+                            <th>Доля</th>
+                            <th>Накоп.</th>
+                            <th>Категория</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in _abcResults)
+                        {
+                            <tr>
+                                <td>@item.ProductName</td>
+                                <td>@item.Revenue.ToString("N0")</td>
+                                <td>@item.RevenueShare%</td>
+                                <td>@item.CumulativeShare%</td>
+                                <td><span class="badge @GetAbcBadge(item.Category)">@item.Category</span></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
         }
 
         @if (_tab == 1)
         {
-            <h4 class="section-title">XYZ-анализ </h4>
-            <table class="data-table">
-                <thead><tr><th>Продукт</th><th>Коэфф. вариации</th><th>Категория</th></tr></thead>
-                <tbody>
-                    @foreach (var item in _xyzResults)
-                    {
+            <h4>XYZ-анализ</h4>
+            @if (_xyzResults.Count == 0)
+            {
+                <p style="color:#636e72; padding:30px; text-align:center;">Нет данных для анализа</p>
+            }
+            else
+            {
+                <table class="data-table">
+                    <thead>
                         <tr>
-                            <td>@item.ProductName</td>
-                            <td>@item.CoefficientOfVariation%</td>
-                            <td><span class="badge @GetXyzBadge(item.Category)">@item.Category</span></td>
+                            <th>Продукт</th>
+                            <th>Коэфф. вариации</th>
+                            <th>Категория</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in _xyzResults)
+                        {
+                            <tr>
+                                <td>@item.ProductName</td>
+                                <td>@item.CoefficientOfVariation%</td>
+                                <td><span class="badge @GetXyzBadge(item.Category)">@item.Category</span></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
         }
 
         @if (_tab == 2)
         {
-            <h4 class="section-title">Прогноз продаж </h4>
-            <div class="forecast-grid">
-                @foreach (var fc in _forecasts)
-                {
-                    <div class="forecast-card">
-                        <h5>@fc.ProductName</h5>
-                        <p>Прогноз на месяц: <strong>@fc.NextMonthForecast.ToString("N0") руб</strong></p>
-                        <div class="chart">
-                            @{
-                                var maxVal = fc.HistoricalData.Any() ? fc.HistoricalData.Max() : 1;
-                            }
-                            @foreach (var val in fc.HistoricalData.TakeLast(25))
-                            {
-                                var h = (double)(val / maxVal) * 100;
-                                <div class="bar bar-hist" style="height:@(h)%" title="Ист: @val.ToString("N0")"></div>
-                            }
-                            <div class="gap"></div>
-                            @foreach (var val in fc.ForecastValues)
-                            {
-                                var h = (double)(val / maxVal) * 100;
-                                <div class="bar bar-forecast" style="height:@(h)%" title="Прогноз: @val.ToString("N0")"></div>
-                            }
+            <h4>Прогноз продаж</h4>
+            @if (_forecasts.Count == 0)
+            {
+                <p style="color:#636e72; padding:30px; text-align:center;">Недостаточно данных для прогноза</p>
+            }
+            else
+            {
+                <div class="forecast-grid">
+                    @foreach (var fc in _forecasts)
+                    {
+                        <div class="forecast-card">
+                            <h5>@fc.ProductName</h5>
+                            <p>Прогноз на месяц: <strong>@fc.NextMonthForecast.ToString("N0") руб</strong></p>
+                            <div class="chart">
+                                @{
+                                    var maxFc = fc.HistoricalData.Any() ? fc.HistoricalData.Max() : 1;
+                                }
+                                @foreach (var val in fc.HistoricalData.TakeLast(25))
+                                {
+                                    var h = (double)(val / maxFc) * 100;
+                                    <div class="bar bar-hist" style="height:@(h)%" title="Ист: @val.ToString("N0")"></div>
+                                }
+                                <div class="gap"></div>
+                                @foreach (var val in fc.ForecastValues)
+                                {
+                                    var h = (double)(val / maxFc) * 100;
+                                    <div class="bar bar-forecast" style="height:@(h)%" title="Прогноз: @val.ToString("N0")"></div>
+                                }
+                            </div>
+                            <div class="chart-legend">
+                                <span><span class="dot dot-hist"></span> История</span>
+                                <span><span class="dot dot-forecast"></span> Прогноз</span>
+                            </div>
                         </div>
-                        <div class="chart-legend">
-                            <span><span class="dot dot-hist"></span> История</span>
-                            <span><span class="dot dot-forecast"></span> Прогноз</span>
-                        </div>
-                    </div>
-                }
-            </div>
+                    }
+                </div>
+            }
         }
 
         @if (_tab == 3)
         {
-            <h4 class="section-title">План-фактный анализ</h4>
-            <table class="data-table">
-                <thead><tr><th>Продукт</th><th>План</th><th>Факт</th><th>Отклонение</th><th>%</th></tr></thead>
-                <tbody>
-                    @foreach (var item in _planFactResults)
-                    {
-                        <tr class="@(item.Deviation < 0 ? "row-negative" : "row-positive")">
-                            <td>@item.ProductName</td>
-                            <td>@item.Plan.ToString("N0")</td>
-                            <td>@item.Fact.ToString("N0")</td>
-                            <td>@item.Deviation.ToString("+#;-#;0")</td>
-                            <td>@item.DeviationPercent%</td>
+            <h4>План-фактный анализ</h4>
+            @if (_planFactResults.Count == 0)
+            {
+                <p style="color:#636e72; padding:30px; text-align:center;">Нет данных за выбранный период</p>
+            }
+            else
+            {
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Продукт</th>
+                            <th>План</th>
+                            <th>Факт</th>
+                            <th>Отклонение</th>
+                            <th>%</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in _planFactResults)
+                        {
+                            <tr class="@(item.Deviation < 0 ? "row-negative" : "row-positive")">
+                                <td>@item.ProductName</td>
+                                <td>@item.Plan.ToString("N0")</td>
+                                <td>@item.Fact.ToString("N0")</td>
+                                <td>@item.Deviation.ToString("+#;-#;0")</td>
+                                <td>@item.DeviationPercent%</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
         }
 
         @if (_tab == 4)
         {
-            <h4 class="section-title">Отклонения от среднего</h4>
-            <table class="data-table">
-                <thead><tr><th>Продукт</th><th>Дата</th><th>Сумма</th><th>Среднее</th><th>Статус</th></tr></thead>
-                <tbody>
-                    @foreach (var item in _deviations)
-                    {
-                        <tr class="@(item.IsOutlier ? "risk-row" : "")">
-                            <td>@item.ProductName</td>
-                            <td>@item.SaleDate.ToString("dd.MM.yyyy")</td>
-                            <td>@item.TotalAmount.ToString("N0")</td>
-                            <td>@item.Mean.ToString("N0")</td>
-                            <td><span class="@(item.IsOutlier ? "status-risk" : "status-ok")">@(item.IsOutlier ? "Выброс" : "Норма")</span></td>
+            <h4>Отклонения от среднего</h4>
+            @if (_deviations.Count == 0)
+            {
+                <p style="color:#636e72; padding:30px; text-align:center;">Недостаточно данных (минимум 5 продаж)</p>
+            }
+            else
+            {
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Продукт</th>
+                            <th>Дата</th>
+                            <th>Сумма</th>
+                            <th>Среднее</th>
+                            <th>Статус</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in _deviations)
+                        {
+                            <tr class="@(item.IsOutlier ? "risk-row" : "")">
+                                <td>@item.ProductName</td>
+                                <td>@item.SaleDate.ToString("dd.MM.yyyy")</td>
+                                <td>@item.TotalAmount.ToString("N0")</td>
+                                <td>@item.Mean.ToString("N0")</td>
+                                <td><span class="@(item.IsOutlier ? "status-risk" : "status-ok")">@(item.IsOutlier ? "Выброс" : "Норма")</span></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
         }
+
+        @if (_tab == 5)
+        {
+            <h4>График выручки по дням</h4>
+            @if (_dailyData.Count == 0)
+            {
+                <p style="color:#636e72; padding:30px; text-align:center;">Нет данных за выбранный период</p>
+            }
+            else
+            {
+                <div class="chart-container">
+                    @{
+                        const int svgW = 900;
+                        const int svgH = 320;
+                        const int padL = 10;
+                        const int padR = 10;
+                        const int padT = 10;
+                        const int padB = 20;
+                        const int drawW = svgW - padL - padR;
+                        const int drawH = svgH - padT - padB;
+
+                        var maxVal5 = (double)_dailyData.Max(d => d.Value);
+                        var barW5 = (double)drawW / _dailyData.Count;
+                        var colors5 = new[] { "#0984e3", "#00b894", "#6c5ce7", "#fdcb6e", "#e17055" };
+                    }
+                    <svg viewBox="0 0 @svgW @svgH" width="100%" xmlns="http://www.w3.org/2000/svg">
+                        @for (int i = 0; i < _dailyData.Count; i++)
+                        {
+                            var barH = maxVal5 > 0 ? (double)_dailyData[i].Value / maxVal5 * drawH : 0;
+                            var gap = Math.Max(1.0, barW5 * 0.1);
+                            var rx = padL + i * barW5 + gap;
+                            var ry = padT + drawH - barH;
+                            var rw = barW5 - gap * 2;
+                            <rect x="@rx.ToString("F2")"
+                                  y="@ry.ToString("F2")"
+                                  width="@rw.ToString("F2")"
+                                  height="@barH.ToString("F2")"
+                                  fill="@colors5[i % 5]"
+                                  rx="3"
+                                  opacity="0.85">
+                                <title>@_dailyData[i].Date.ToString("dd.MM"): @_dailyData[i].Value.ToString("N0") руб</title>
+                            </rect>
+                        }
+                        <line x1="@padL" y1="@(padT + drawH)"
+                              x2="@(svgW - padR)" y2="@(padT + drawH)"
+                              stroke="#ddd" stroke-width="1" />
+                    </svg>
+                </div>
+            }
+        }
+
+        @if (_tab == 6)
+        {
+            <h4>Сравнение периодов</h4>
+            <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom:15px; align-items:center;">
+                <div>
+                    <small>Период 1 с:</small>
+                    <input type="date" @bind="_cmpFrom1" class="date-input" />
+                    <small>по:</small>
+                    <input type="date" @bind="_cmpTo1" class="date-input" />
+                </div>
+                <div>
+                    <small>Период 2 с:</small>
+                    <input type="date" @bind="_cmpFrom2" class="date-input" />
+                    <small>по:</small>
+                    <input type="date" @bind="_cmpTo2" class="date-input" />
+                </div>
+                <button class="btn-apply" @onclick="ComparePeriods">Сравнить</button>
+            </div>
+
+            @if (_comparison != null)
+            {
+                <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:15px; margin-bottom:20px;">
+                    <div class="stat-card">
+                        <small>Выручка Период 1</small>
+                        <strong>@_comparison.TotalRevenue1.ToString("N0") руб</strong>
+                    </div>
+                    <div class="stat-card">
+                        <small>Выручка Период 2</small>
+                        <strong>@_comparison.TotalRevenue2.ToString("N0") руб</strong>
+                    </div>
+                    <div class="stat-card @(_comparison.RevenueChange >= 0 ? "stat-positive" : "stat-negative")">
+                        <small>Изменение выручки</small>
+                        <strong>@(_comparison.RevenueChange >= 0 ? "+" : "")@_comparison.RevenueChange.ToString("F1")%</strong>
+                    </div>
+                    <div class="stat-card">
+                        <small>Средний чек П1</small>
+                        <strong>@_comparison.AvgCheck1.ToString("N0") руб</strong>
+                    </div>
+                    <div class="stat-card">
+                        <small>Средний чек П2</small>
+                        <strong>@_comparison.AvgCheck2.ToString("N0") руб</strong>
+                    </div>
+                    <div class="stat-card">
+                        <small>Количество продаж</small>
+                        <strong>@_comparison.SalesCount1 / @_comparison.SalesCount2</strong>
+                    </div>
+                </div>
+
+                <h5>По дням</h5>
+                @if (_dailyComparison.Count == 0)
+                {
+                    <p style="color:#636e72; padding:20px; text-align:center;">Нет данных для сравнения по дням</p>
+                }
+                else
+                {
+                    <div class="chart-container">
+                        @{
+                            const int svgW6 = 900;
+                            const int svgH6 = 240;
+                            const int padL6 = 10;
+                            const int padR6 = 10;
+                            const int padT6 = 10;
+                            const int padB6 = 20;
+                            const int drawW6 = svgW6 - padL6 - padR6;
+                            const int drawH6 = svgH6 - padT6 - padB6;
+
+                            var count6 = _dailyComparison.Count;
+                            var maxD6 = (double)_dailyComparison.Max(d => Math.Max(d.Period1Value, d.Period2Value));
+                            if (maxD6 == 0) maxD6 = 1;
+                            var groupW6 = (double)drawW6 / count6;
+                            var barW6 = Math.Max(2.0, groupW6 * 0.4);
+                        }
+                        <svg viewBox="0 0 @svgW6 @svgH6" width="100%" xmlns="http://www.w3.org/2000/svg">
+                            @for (int i = 0; i < _dailyComparison.Count; i++)
+                            {
+                                var h1 = (double)_dailyComparison[i].Period1Value / maxD6 * drawH6;
+                                var h2 = (double)_dailyComparison[i].Period2Value / maxD6 * drawH6;
+                                var gx = padL6 + i * groupW6;
+
+                                <rect x="@gx.ToString("F2")"
+                                      y="@((padT6 + drawH6 - h1).ToString("F2"))"
+                                      width="@barW6.ToString("F2")"
+                                      height="@h1.ToString("F2")"
+                                      fill="#0984e3" rx="2" opacity="0.85">
+                                    <title>П1 День @(i + 1): @_dailyComparison[i].Period1Value.ToString("N0") руб</title>
+                                </rect>
+                                <rect x="@((gx + barW6 + 2).ToString("F2"))"
+                                      y="@((padT6 + drawH6 - h2).ToString("F2"))"
+                                      width="@barW6.ToString("F2")"
+                                      height="@h2.ToString("F2")"
+                                      fill="#e17055" rx="2" opacity="0.85">
+                                    <title>П2 День @(i + 1): @_dailyComparison[i].Period2Value.ToString("N0") руб</title>
+                                </rect>
+                            }
+                            <line x1="@padL6" y1="@(padT6 + drawH6)"
+                                  x2="@(svgW6 - padR6)" y2="@(padT6 + drawH6)"
+                                  stroke="#ddd" stroke-width="1" />
+                        </svg>
+                    </div>
+                }
+                <div style="display:flex; gap:15px; margin-top:8px; font-size:11px; color:#636e72;">
+                    <span>&#9632; Синий — Период 1</span>
+                    <span>&#9632; Красный — Период 2</span>
+                </div>
+            }
+        }
+
     </div>
 </div>
 
@@ -145,18 +374,27 @@
     private int _tab;
     private DateTime _dateFrom = DateTime.Today.AddMonths(-3);
     private DateTime _dateTo = DateTime.Today;
+    private DateTime _cmpFrom1 = DateTime.Today.AddMonths(-2);
+    private DateTime _cmpTo1 = DateTime.Today.AddMonths(-1);
+    private DateTime _cmpFrom2 = DateTime.Today.AddMonths(-1);
+    private DateTime _cmpTo2 = DateTime.Today;
 
     private List<AbcResult> _abcResults = new();
     private List<XyzResult> _xyzResults = new();
     private List<SalesForecast> _forecasts = new();
     private List<PlanFactResult> _planFactResults = new();
     private List<DeviationResult> _deviations = new();
+    private List<DayData> _dailyData = new();
+    private ComparisonResult? _comparison;
+    private List<PeriodDayData> _dailyComparison = new();
 
     protected override async Task OnInitializedAsync() => await LoadData();
 
     private void SetTab(int tab)
     {
         _tab = tab;
+        if (tab == 6)
+            _ = ComparePeriods();
     }
 
     private async Task LoadData()
@@ -168,11 +406,32 @@
             _forecasts = await ForecastService.GetAllForecastsAsync();
             _planFactResults = await AnalyticsService.GetPlanFactAsync(_dateFrom, _dateTo);
             _deviations = await AnalyticsService.GetDeviationsAsync(_dateFrom, _dateTo);
+            _dailyData = await AnalyticsService.GetDailyDataAsync(_dateFrom, _dateTo);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Ошибка: {ex.Message}");
+            Console.WriteLine($"Ошибка загрузки данных: {ex.Message}");
         }
+    }
+
+    private async Task ComparePeriods()
+    {
+        try
+        {
+            _comparison = await ComparisonService.ComparePeriodsAsync(_cmpFrom1, _cmpTo1, _cmpFrom2, _cmpTo2);
+            _dailyComparison = await ComparisonService.GetDailyComparisonAsync(_cmpFrom1, _cmpTo1, _cmpFrom2, _cmpTo2);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка сравнения периодов: {ex.Message}");
+        }
+    }
+
+    private async Task ExportToExcel()
+    {
+        NavigationManager.NavigateTo(
+            $"api/export/sales?from={_dateFrom:yyyy-MM-dd}&to={_dateTo:yyyy-MM-dd}",
+            true);
     }
 
     private string GetAbcBadge(string cat) => cat switch
